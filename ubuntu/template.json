@@ -32,6 +32,8 @@
   "builders": [
     {
       "type": "virtualbox-iso",
+      "output_directory": "cartero.vbox",
+      "vm_name": "Cartero",
       "boot_command": [
         "<esc><wait>",
         "<esc><wait>",
@@ -75,6 +77,9 @@
     },
     {
       "type": "vmware-iso",
+      "output_directory": "cartero.vmwarevm",
+      "vm_name": "Cartero",
+      "vmdk_name": "cartero",
       "boot_command": [
       "<esc><wait>",
       "<esc><wait>",

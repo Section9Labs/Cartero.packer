@@ -81,4 +81,4 @@ case "$VM_TYPE" in
 esac
 
 echo "Deleting temporary preseed.cfg file"
-rm ubuntu/http/preseed.cfg
+rm `pwd`/http/preseed.cfg
