@@ -25,11 +25,40 @@
             "scripts/postfix.sh",
             "scripts/zerodisk.sh"
           ]
+        },
+        "amazon-ebs": {
+          "scripts": [
+            "scripts/base.sh",
+            "scripts/vmware.sh",
+            "scripts/cleanup.sh",
+            "scripts/cartero.sh",
+						"scripts/apache.sh",
+            "scripts/postfix.sh"
+          ]
         }
       }
     }
   ],
   "builders": [
+    {
+			"type": "amazon-ebs",
+      "ami_block_device_mappings": [
+      	{
+          "delete_on_termination": true,
+          "device_name": "/dev/sda"
+        }
+      ],
+      "ami_name": "carterobox-ubuntu",
+      "ami_regions": [
+        "us-east-1",
+        "us-west-1"
+      ],
+      "instance_type": "m1.small",
+      "region": "us-east-1",
+      "source_ami": "ami-3b2d7351",
+      "ssh_timeout": "5m",
+			"ssh_username": "ubuntu"
+    },
     {
       "type": "virtualbox-iso",
       "output_directory": "cartero.vbox",
